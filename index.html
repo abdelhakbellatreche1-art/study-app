@@ -3,110 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مكتبة دروس الجزائر الشاملة</title>
+    <title>تطبيق المنهج الجزائري الشامل</title>
     <style>
         :root {
-            --primary: #1a5d1a; /* لون أخضر يرمز للعلم الوطني */
-            --secondary: #f4f4f4;
-            --accent: #d35400;
+            --algeria-green: #006233;
+            --algeria-red: #d21034;
+            --dark: #2c3e50;
         }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--secondary); margin: 0; padding: 15px; }
-        header { text-align: center; background: var(--primary); color: white; padding: 25px; border-radius: 15px; margin-bottom: 25px; }
-        .phase-container { max-width: 900px; margin: 0 auto; }
-        
-        /* تصميم الأقسام */
-        .phase-section { background: white; margin-bottom: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); overflow: hidden; }
-        .phase-header { padding: 20px; color: white; cursor: pointer; font-size: 1.3em; font-weight: bold; display: flex; justify-content: space-between; align-items: center; }
-        
-        .primary-bg { background: #27ae60; } /* ابتدائي */
-        .middle-bg { background: #2980b9; }  /* متوسط */
-        .high-bg { background: #8e44ad; }    /* ثانوي */
-
-        .year-list { display: none; padding: 10px; background: #fff; }
-        .year-item { border-bottom: 1px solid #eee; }
-        .year-title { padding: 10px; background: #f9f9f9; cursor: pointer; font-weight: bold; color: #333; display: block; border-right: 5px solid var(--primary); margin: 5px 0; }
-        
-        .lessons { display: none; padding: 10px 25px; }
-        .lesson-link { display: block; padding: 8px 0; color: #555; text-decoration: none; transition: 0.2s; }
-        .lesson-link:hover { color: var(--accent); padding-right: 10px; }
-        .badge { background: #eee; padding: 2px 7px; border-radius: 4px; font-size: 0.8em; margin-right: 10px; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background: #f0f2f5; margin: 0; padding: 0; }
+        header { background: var(--algeria-green); color: white; padding: 25px; text-align: center; border-bottom: 5px solid var(--algeria-red); }
+        .container { padding: 15px; max-width: 800px; margin: auto; }
+        .phase-card { background: white; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); overflow: hidden; }
+        .phase-title { background: var(--dark); color: white; padding: 15px; font-size: 1.2em; font-weight: bold; cursor: pointer; display: flex; justify-content: space-between; }
+        .lessons-list { display: none; padding: 10px; }
+        .lesson-btn { 
+            display: block; 
+            background: #fff; 
+            border: 1px solid #ddd; 
+            padding: 12px; 
+            margin: 8px 0; 
+            text-decoration: none; 
+            color: #333; 
+            border-radius: 8px; 
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+        }
+        .lesson-btn:hover { background: #f9f9f9; border-color: var(--algeria-green); transform: scale(1.02); }
+        .icon { font-size: 1.5em; margin-left: 15px; }
+        .footer { text-align: center; padding: 20px; font-size: 0.9em; color: #666; }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>بوابة الدروس الجزائرية</h1>
-    <p>من السنة الأولى ابتدائي إلى البكالوريا</p>
+    <h1>بوابة المنهج التعليمي الجزائري</h1>
+    <p>جميع الدروس والملخصات المنهجية - الجيل الثاني</p>
 </header>
 
-<div class="phase-container">
+<div class="container">
 
-    <div class="phase-section">
-        <div class="phase-header primary-bg" onclick="toggle('primary')">
-            <span>الطور الابتدائي</span>
-            <span>+</span>
-        </div>
-        <div id="primary" class="year-list">
-            <div class="year-item">
-                <span class="year-title" onclick="toggle('p1')">السنة الأولى والثانية ابتدائي</span>
-                <div id="p1" class="lessons">
-                    <a href="#" class="lesson-link">📖 لغة عربية: الحروف والأصوات</a>
-                    <a href="#" class="lesson-link">🔢 رياضيات: الأعداد من 1 إلى 20</a>
-                </div>
-            </div>
-            <div class="year-item">
-                <span class="year-title" onclick="toggle('p5')">السنة الخامسة ابتدائي</span>
-                <div id="p5" class="lessons">
-                    <a href="#" class="lesson-link">📝 قواعد النحو والصرف</a>
-                    <a href="#" class="lesson-link">📐 هندسة: المساحات والمحيطات</a>
-                </div>
-            </div>
+    <div class="phase-card">
+        <div class="phase-title" onclick="toggle('prim')">التعليم الابتدائي (الجيل الثاني) <span>+</span></div>
+        <div id="prim" class="lessons-list">
+            <a href="https://www.ency-education.com/1ap.html" class="lesson-btn"><span class="icon">📝</span> السنة الأولى ابتدائي</a>
+            <a href="https://www.ency-education.com/2ap.html" class="lesson-btn"><span class="icon">📘</span> السنة الثانية ابتدائي</a>
+            <a href="https://www.ency-education.com/3ap.html" class="lesson-btn"><span class="icon">📗</span> السنة الثالثة ابتدائي</a>
+            <a href="https://www.ency-education.com/4ap.html" class="lesson-btn"><span class="icon">📙</span> السنة الرابعة ابتدائي</a>
+            <a href="https://www.ency-education.com/5ap.html" class="lesson-btn"><span class="icon">🎓</span> السنة الخامسة ابتدائي</a>
         </div>
     </div>
 
-    <div class="phase-section">
-        <div class="phase-header middle-bg" onclick="toggle('middle')">
-            <span>الطور المتوسط</span>
-            <span>+</span>
-        </div>
-        <div id="middle" class="year-list">
-            <div class="year-item">
-                <span class="year-title" onclick="toggle('m4')">السنة الرابعة متوسط (BEM)</span>
-                <div id="m4" class="lessons">
-                    <a href="#" class="lesson-link">📉 رياضيات: الأشعة والمعالم</a>
-                    <a href="#" class="lesson-link">🧪 فيزياء: المادة وتحولاتها</a>
-                </div>
-            </div>
+    <div class="phase-card">
+        <div class="phase-title" onclick="toggle('mid')">التعليم المتوسط (BEM) <span>+</span></div>
+        <div id="mid" class="lessons-list">
+            <a href="https://www.ency-education.com/1am.html" class="lesson-btn"><span class="icon">🏢</span> السنة الأولى متوسط</a>
+            <a href="https://www.ency-education.com/2am.html" class="lesson-btn"><span class="icon">📚</span> السنة الثانية متوسط</a>
+            <a href="https://www.ency-education.com/3am.html" class="lesson-btn"><span class="icon">📐</span> السنة الثالثة متوسط</a>
+            <a href="https://www.ency-education.com/4am.html" class="lesson-btn"><span class="icon">📜</span> السنة الرابعة متوسط - شهادة BEM</a>
         </div>
     </div>
 
-    <div class="phase-section">
-        <div class="phase-header high-bg" onclick="toggle('high')">
-            <span>الطور الثانوي</span>
-            <span>+</span>
-        </div>
-        <div id="high" class="year-list">
-            <div class="year-item">
-                <span class="year-title" onclick="toggle('h3')">السنة الثالثة ثانوي (BAC)</span>
-                <div id="h3" class="lessons">
-                    <a href="#" class="lesson-link">⚛️ علوم: تركيب البروتين</a>
-                    <a href="#" class="lesson-link">🌍 اجتماعيات: الثورة التحريرية</a>
-                    <a href="#" class="lesson-link">🧮 رياضيات: الدوال العددية</a>
-                </div>
-            </div>
+    <div class="phase-card">
+        <div class="phase-title" onclick="toggle('sec')" style="background: var(--algeria-red);">التعليم الثانوي (BAC) <span>+</span></div>
+        <div id="sec" class="lessons-list">
+            <a href="https://www.ency-education.com/1as.html" class="lesson-btn"><span class="icon">🧬</span> السنة الأولى ثانوي (جذع مشترك)</a>
+            <a href="https://www.ency-education.com/2as.html" class="lesson-btn"><span class="icon">⚖️</span> السنة الثانية ثانوي (جميع الشعب)</a>
+            <a href="https://www.ency-education.com/3as.html" class="lesson-btn" style="border: 2px solid var(--algeria-red);">
+                <span class="icon">🎯</span> السنة الثالثة ثانوي - بكالوريا الجزائر
+            </a>
         </div>
     </div>
 
 </div>
 
+<div class="footer">
+    تم البرمجة بواسطة عبد الحق - دليل الطالب الجزائري 2026
+</div>
+
 <script>
     function toggle(id) {
-        var x = document.getElementById(id);
-        if (x.style.display === "block") {
-            x.style.display = "none";
-        } else {
-            x.style.display = "block";
-        }
+        var el = document.getElementById(id);
+        el.style.display = (el.style.display === "block") ? "none" : "block";
     }
 </script>
 
