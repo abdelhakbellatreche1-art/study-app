@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تطبيق شرح الدروس الجزائرية</title>
+    <style>
+        :root { --primary: #006233; --accent: #d21034; }
+        body { font-family: 'Segoe UI', sans-serif; background: #f0f2f5; margin: 0; padding: 10px; }
+        header { background: var(--primary); color: white; text-align: center; padding: 15px; border-radius: 12px; margin-bottom: 15px; }
+        .year-card { background: white; margin-bottom: 10px; border-radius: 8px; border-right: 5px solid var(--primary); overflow: hidden; }
+        .year-title { padding: 15px; cursor: pointer; font-weight: bold; background: #eee; display: block; }
+        .lessons-list { display: none; padding: 10px; background: #fff; }
+        
+        /* تصميم زر الدرس */
+        .lesson-btn { 
+            display: block; width: 100%; text-align: right; padding: 10px; 
+            margin: 5px 0; background: #f9f9f9; border: 1px solid #ddd; 
+            border-radius: 5px; cursor: pointer; color: #333;
+        }
+        .lesson-btn:hover { background: #e8f5e9; }
+
+        /* صندوق شرح الدرس */
+        .full-lesson-content { 
+            display: none; padding: 20px; background: #ffffff; 
+            border: 2px solid var(--primary); border-radius: 10px; 
+            margin-top: 10px; line-height: 1.8; 
+        }
+        .law-box { background: #fff3e0; border-right: 4px solid #ff9800; padding: 10px; margin: 10px 0; }
+        .close-btn { background: var(--accent); color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer; margin-top: 10px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>موسوعة الدروس المشروحة</h1>
+    <p>اضغط على الدرس ليظهر لك الشرح فوراً</p>
+</header>
+
+<div class="year-card">
+    <div class="year-title" onclick="toggle('bac-list')">قسم البكالوريا (BAC)</div>
+    <div id="bac-list" class="lessons-list">
+        <button class="lesson-btn" onclick="showLesson('l1')">📖 درس العلوم: تركيب البروتين</button>
+        <div id="l1" class="full-lesson-content">
+            <h3>شرح درس تركيب البروتين:</h3>
+            <p>يتم تركيب البروتين في الهيولى مرورا بمرحلتين أساسيتين:</p>
+            <div class="law-box">
+                <b>1. الاستنساخ:</b> يتم في النواة ويتم فيه تصنيع جزيء ARNm انطلاقا من ADN. <br>
+                <b>2. الترجمة:</b> يتم في الهيولى (الريبوزومات) حيث تترجم الشفرة الوراثية إلى أحماض أمينية.
+            </div>
+            <p>العناصر الضرورية: ADN، إنزيم ARN بوليميراز، أحماض أمينية، طاقة (ATP).</p>
+            <button class="close-btn" onclick="closeLesson('l1')">إغلاق الشرح</button>
+        </div>
+
+        <button class="lesson-btn" onclick="showLesson('l2')">📖 درس الفلسفة: المشكلة والإشكالية</button>
+        <div id="l2" class="full-lesson-content">
+            <h3>الفرق بين المشكلة والإشكالية:</h3>
+            <p><b>المشكلة:</b> هي قضية تثير الدهشة ويمكن الوصول فيها إلى حل (مثل مشكلات الرياضيات).</p>
+            <p><b>الإشكالية:</b> هي قضية أوسع تثير الحيرة ولا يمكن الوصول فيها إلى حل نهائي (مثل أصل الوجود).</p>
+            <button class="close-btn" onclick="closeLesson('l2')">إغلاق الشرح</button>
+        </div>
+    </div>
+</div>
+
+<div class="year-card">
+    <div class="year-title" onclick="toggle('bem-list')">قسم السنة الرابعة متوسط (BEM)</div>
+    <div id="bem-list" class="lessons-list">
+        <button class="lesson-btn" onclick="showLesson('m1')">📐 درس الرياضيات: PGCD</button>
+        <div id="m1" class="full-lesson-content">
+            <h3>حساب القاسم المشترك الأكبر:</h3>
+            <p>نستخدم خوارزمية إقليدس (القسمات المتتالية).</p>
+            <div class="law-box">مثال: حساب PGCD(24, 18) <br> 24 = 18 × 1 + 6 <br> 18 = 6 × 3 + 0 <br> الباقي الأخير غير المعدوم هو 6.</div>
+            <button class="close-btn" onclick="closeLesson('m1')">إغلاق الشرح</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function toggle(id) {
+        var x = document.getElementById(id);
+        x.style.display = (x.style.display === "block") ? "none" : "block";
+    }
+
+    function showLesson(id) {
+        // إغلاق أي شرح مفتوح أولاً ليبقى الموقع منظماً
+        var contents = document.getElementsByClassName('full-lesson-content');
+        for (var i = 0; i < contents.length; i++) {
+            contents[i].style.display = "none";
+        }
+        // فتح الشرح المطلوب
+        document.getElementById(id).style.display = "block";
+        document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function closeLesson(id) {
+        document.getElementById(id).style.display = "none";
+    }
+</script>
+
+</body>
+</html>
